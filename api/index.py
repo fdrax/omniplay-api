@@ -21,7 +21,7 @@ def home():
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>OmniPlay AI Agent</title>
+        <title>AssetaForge AI Agent</title>
         <style>
             body {
                 background-color: #0d1117; color: #c9d1d9;
@@ -45,8 +45,8 @@ def home():
     </head>
     <body>
         <div class="container">
-            <h1>OmniPlay AI</h1>
-            <p>GameFi and Play-to-Earn (P2E) economic analysis agent. Tracks in-game token emissions, analyzes NFT asset utility, and optimizes gaming guild scholarship yields on the Base network.</p>
+            <h1>AssetaForge AI</h1>
+            <p>AI agent specialized in tracking Real World Assets (RWA) tokenization, analyzing yields from tokenized treasuries, and real estate protocols on the Base network.</p>
             <div class="status-badge">🟢 System Online & Healthy</div>
         </div>
     </body>
@@ -58,19 +58,19 @@ def home():
 @app.route('/mcp', methods=['GET', 'POST', 'OPTIONS'])
 def mcp_endpoint():
     server_info = {
-        "name": "OmniPlay Agent Server",
+        "name": "AssetaForge Agent Server",
         "version": "1.0.0",
-        "website": "https://omniplay-api.vercel.app",
-        "description": "GameFi economy and P2E yield optimization agent"
+        "website": "https://assetaforge-api.vercel.app",
+        "description": "RWA tracking and tokenized asset analysis agent"
     }
     tools = [
-        {"name": "track_token_emissions", "description": "Monitor in-game token inflation rates", "inputSchema": {"type": "object","properties": {}}},
-        {"name": "analyze_nft_utility", "description": "Evaluate the ROI of specific game NFT assets", "inputSchema": {"type": "object","properties": {}}},
-        {"name": "optimize_guild_yield", "description": "Calculate best strategies for gaming guild scholars", "inputSchema": {"type": "object","properties": {}}}
+        {"name": "track_rwa_yields", "description": "Calculate APY for tokenized US Treasuries", "inputSchema": {"type": "object","properties": {}}},
+        {"name": "monitor_real_estate", "description": "Track fractionalized real estate token transfers", "inputSchema": {"type": "object","properties": {}}},
+        {"name": "audit_asset_reserves", "description": "Verify off-chain collateral for RWA tokens", "inputSchema": {"type": "object","properties": {}}}
     ]
     prompts = [
-        {"name": "gamefi_economy_report", "description": "Generate health report of a Web3 game economy", "arguments": []},
-        {"name": "p2e_roi_calculator", "description": "Calculate estimated time to ROI for new players", "arguments": []}
+        {"name": "rwa_market_report", "description": "Generate report on the fastest growing RWA protocols", "arguments": []},
+        {"name": "yield_comparison_analysis", "description": "Compare yields between DeFi native and RWA assets", "arguments": []}
     ]
     
     if request.method == 'GET':
@@ -99,20 +99,20 @@ def mcp_endpoint():
 
     return jsonify({"jsonrpc": "2.0", "id": req_id, "result": result})
 
-# --- 3. ENDPOINT A2A (ID AKUN 11: 22376) ---
+# --- 3. ENDPOINT A2A (ID AKUN 13: 22376) ---
 @app.route('/.well-known/agent-card.json', methods=['GET','OPTIONS'])
 def a2a_endpoint():
     return jsonify({
-        "id": "omniplay",
-        "name": "omniplay",
+        "id": "assetaforge",
+        "name": "assetaforge",
         "version": "1.0.0",
-        "description": "GameFi and P2E economic analysis agent.",
-        "website": "https://omniplay-api.vercel.app",
-        "url": "https://omniplay-api.vercel.app",
-        "documentation_url": "https://omniplay-api.vercel.app",
+        "description": "AI agent specialized in tracking Real World Assets (RWA) tokenization, analyzing yields from tokenized treasuries, and real estate protocols on the Base network.",
+        "website": "https://assetaforge-api.vercel.app",
+        "url": "https://assetaforge-api.vercel.app",
+        "documentation_url": "https://assetaforge-api.vercel.app",
         "provider": {
-            "organization": "OmniPlay Gaming Labs",
-            "url": "https://omniplay-api.vercel.app"
+            "organization": "AssetaForge Protocol",
+            "url": "https://assetaforge-api.vercel.app"
         },
         "registrations": [
             {
@@ -122,9 +122,9 @@ def a2a_endpoint():
         ],
         "supportedTrust": ["reputation", "tee-attestation"],
         "skills": [
-            {"name": "Economy Analysis", "description": "Track token inflation", "category": "market/economy_analysis"},
-            {"name": "GameFi Data", "description": "Analyze NFT utility", "category": "data_analysis/gamefi"},
-            {"name": "Yield Strategy", "description": "Optimize scholar yields", "category": "market/yield_strategy"}
+            {"name": "RWA Tracking", "description": "Monitor tokenized treasuries", "category": "defi/rwa_tracking"},
+            {"name": "Yield Analysis", "description": "Calculate real-world APYs", "category": "market/yield_analysis"},
+            {"name": "Asset Verification", "description": "Verify off-chain collateral", "category": "security/asset_verification"}
         ]
     })
 
@@ -132,22 +132,22 @@ def a2a_endpoint():
 @app.route('/oasf', methods=['GET','OPTIONS'])
 def oasf_endpoint():
     return jsonify({
-        "id": "omniplay",
-        "name": "omniplay",
+        "id": "assetaforge",
+        "name": "assetaforge",
         "version": "v0.8.0",
-        "description": "Main endpoint for OmniPlay AI",
-        "website": "https://omniplay-api.vercel.app",
+        "description": "Main endpoint for AssetaForge AI",
+        "website": "https://assetaforge-api.vercel.app",
         "protocols": ["mcp","a2a"],
-        "capabilities": ["track_token_emissions", "analyze_nft_utility", "optimize_guild_yield"],
+        "capabilities": ["track_rwa_yields", "monitor_real_estate", "audit_asset_reserves"],
         "skills": [
-            {"name": "market/economy_analysis","type": "analytical"},
-            {"name": "data_analysis/gamefi","type": "analytical"},
-            {"name": "market/yield_strategy","type": "operational"}
+            {"name": "defi/rwa_tracking","type": "analytical"},
+            {"name": "market/yield_analysis","type": "analytical"},
+            {"name": "security/asset_verification","type": "operational"}
         ],
         "domains": [
-            "web3/gamefi",
-            "market/play_to_earn",
-            "technology/gaming"
+            "web3/rwa",
+            "finance/tokenization",
+            "security/auditing"
         ]
     })
 
